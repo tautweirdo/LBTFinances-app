@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="lt" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>„LTB“ pervedimų tvarkyklė</title>
+  <link rel="icon" type="image/x-icon" href="https://i.imgur.com/NjUchYw.jpeg">
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"  />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('https://i.imgur.com/K9tDCkn.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      padding-bottom: 100px;
+    }
+    .container-fluid {
+      padding: 20px;
+    }
+
+    h2 {
+      color: #171a17;
+      margin-bottom: 20px;
+    }
+
+    .h3 {
+      color: #f1f4f8;
+      text-decoration: none;
+      margin-bottom: 20px;
+    }
+
+    .alert {
+      margin-bottom: 20px;
+    }
+
+    .table {
+      background-color: #edf5f0;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .table thead th {
+      background-color: #ccd9e8;
+      color: #fff;
+    }
+
+    .table-bordered {
+      border: 10px solid #090a09;
+    }
+
+    .table td,
+    .table th {
+      border: 1px solid #ccc;
+    }
+
+    .h4 {
+      color: #ecf0f5;
+      text-decoration: none;
+      margin-right: 10px;
+    }
+
+    .footer {
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+      padding: 10px 0;
+      background-color: #f2f7f5;
+      border-top: 1px solid #c3e9df;
+    }
+
+    .footer img {
+      max-width: 100%;
+      max-height: 80px;
+      margin: 0 auto;
+    }
+
+    .btn {
+      background-color: #1d7063;
+      color: #e5f3ef;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      padding: 0;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      color: #dfe3df;
+    }
+
+    .btn-success2 {
+      background-color: #1d7063;
+      color: #ffffff;
+      border-radius: 10px;
+      text-decoration: none;
+      padding: 10px 20px;
+      transition: background-color 0.3s;
+    }
+
+    .btn-success {
+      background-color: #1d7063;
+      color: #ffffff;
+      border-radius: 5px;
+      text-decoration: none;
+      padding: 5px 10px;
+      transition: background-color 0.3s;
+    }
+
+    .btn-success:hover {
+      background-color: #1d7063;
+    }
+
+    .btn-icon {
+      display: inline-flex;
+      align-items: center;
+    }
+    .btn-icon .icon {
+      width: 16px;
+      height: 16px;
+      margin-right: 5px;
+    }
+    .btn-icon:hover {
+      background-color: #c3e9df;
+    }
+    .btn-icon .icon {
+      margin-right: 5px;
+    }
+    .centered2 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .custom-bg2 {
+      background-color: #1d7063;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    .custom-bg {
+      background-color: #e7f5f1;
+    }
+
+    .centered {
+      text-align: center;
+      vertical-align: middle;
+    }
+
+
+    .btn-delete {
+      background-color: #d25b4f;
+      color: #ffffff;
+      border-radius: 5px;
+      text-decoration: none;
+      padding: 5px 10px;
+      transition: background-color 0.3s;
+    }
+
+    .btn-delete:hover {
+      background-color: #e74c3c;
+    }
+
+    .btn-small {
+      padding: 3px 8px;
+      margin-left: 10px;
+    }
+    .filter-container {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .filter-container label {
+      margin-right: 10px;
+    }
+
+    .filter-container select {
+      padding: 5px;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .filter-container button {
+      background-color: #1d7063;
+      color: rgb(248, 242, 242);
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      transition: background-color 0.3s;
+      cursor: pointer;
+    }
+
+    .filter-container button:hover {
+      background-color: #175f55;
+    }
+    .icon-text {
+      display: flex;
+      align-items: center;
+    }
+
+    .icon-text .icon {
+      width: 16px;
+      height: 16px;
+      margin-right: 5px;
+    }
+    .custom-bg {
+      background-color: #dfe3df;
+      color: #0b0c0b;
+    }
+    .stalas1 .table-bordered thead {
+      background-color: #ffffff;
+      color: white;
+    }
+    .stalas1 .table-bordered th:nth-child(1),
+    .stalas1 .table-bordered th:nth-child(2),
+    .stalas1 .table-bordered th:nth-child(3),
+    .stalas1 .table-bordered th:nth-child(4),
+    .stalas1 .table-bordered th:nth-child(5) {
+      background-color: #24a492;
+    }
+  </style>
+  </script>
+</head>
+<body>
+<div class="container-fluid text-center">
+  <div class="m-2">
+    <img src="https://i.imgur.com/Bd5b4IR.png" alt="LTB Logo" style="max-width: 100%;">
+  </div>
+</div>
+<div class="container-fluid text-center">
+  <a class="btn btn-success2 btn-lg btn-block" href="/users">Norint redaguoti, spauskite ant šios nuorodos</a>
+</div>
+<div th:if="${message}" class="alert alert-success text-center">
+  [[${message}]]
+</div>
+<div class="filter-container">
+  <div>
+    <label for="filterType">Filtravimas:</label>
+    <select id="filterType" onchange="filterUsers()">
+      <option value="">Visi išrašai</option>
+      <option value="Pajamos">Pajamos</option>
+      <option value="Išlaidos">Išlaidos</option>
+    </select>
+    <button onclick="filterUsers()">Filtruoti</button>
+  </div>
+  <a class="btn btn-link" href="/">Grįžti į pagrindinį puslapį</a>
+</div>
+<div class="stalas1">
+  <div class="stalas1">
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th><a class="icon-text"><img src="https://i.imgur.com/3xjJpAo.png" class="icon">ID</a></th>
+          <th><a class="icon-text"><img src="https://i.imgur.com/OQtKvl6.png" class="icon">Suma</a></th>
+          <th><a class="icon-text"><img src="https://i.imgur.com/GduiqSy.png" class="icon">Tipas</a></th>
+          <th><a class="icon-text"><img src="https://i.imgur.com/XPZ52La.png" class="icon">Komentaras</a></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${listUsers}" class="user" th:data-type="${user.type}">
+          <td class="centered custom-bg">[[${user.id}]]</td>
+          <td class="centered custom-bg">[[${user.amount}]]</td>
+          <td class="centered custom-bg">
+        <span th:switch="${user.type}">
+        <span th:case="Pajamos">Pajamos</span>
+        <span th:case="Išlaidos">Išlaidos</span>
+        </span>
+          </td>
+          <td class="centered custom-bg">[[${user.description}]]</td>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="footer">
+      <img src="https://i.imgur.com/XXwTG2Z.png" alt="Footer Image">
+    </div>
+    <script>
+      function filterUsers() {
+        var filterType = document.getElementById("filterType").value;
+        var users = document.getElementsByClassName("user");
+        for (var i = 0; i < users.length; i++) {
+          var user = users[i];
+          if (filterType === "" || user.dataset.type.toLowerCase() === filterType.toLowerCase()) {
+            user.style.display = "table-row";
+          } else {
+            user.style.display = "none";
+          }
+        }
+      }
+    </script>
+</body>
+</html>
+

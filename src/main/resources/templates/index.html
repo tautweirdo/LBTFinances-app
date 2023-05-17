@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>„LTB“ pagrindinis</title>
+    <link rel="icon" type="image/x-icon" href="https://i.imgur.com/NjUchYw.jpeg">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://i.imgur.com/K9tDCkn.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            opacity: 0; /* Start with 0 opacity */
+            animation: fade-in 1s ease-in-out forwards; /* Apply the fade-in animation */
+        }
+
+        .box {
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1 {
+            color: #1d7063;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            opacity: 0; /* Start with 0 opacity */
+            animation: fade-in 1s ease-in-out forwards; /* Apply the fade-in animation */
+        }
+
+        .footer {
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            padding: 10px 0;
+        }
+
+        .footer img {
+            max-width: 100%;
+            max-height: 80px; /* Set a maximum height for the footer image */
+            margin: 0 auto;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 20px 30px;
+            font-size: 30px;
+            background-color: #1d7063;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+            margin: 0 100px;
+        }
+
+        .button:hover {
+            background-color: #135244;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .image-box {
+            width: 200px;
+            height: 500px;
+            border-radius: 5px;
+            margin: 0 10px;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .image-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        </style>
+        <script>
+         function redirectToUsersPage() {
+            window.location.href = "/users";
+        }
+        function redirectToCheckPage() {
+            window.location.href = "/check";
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var button1 = document.getElementById("button1");
+            var button2 = document.getElementById("button2");
+            var imageBox1 = document.getElementById("image-box1");
+            var imageBox2 = document.getElementById("image-box2");
+
+        button1.addEventListener("mouseenter", function() {
+            imageBox1.style.opacity = 1;
+        });
+
+        button1.addEventListener("mouseleave", function() {
+            imageBox1.style.opacity = 0;
+        });
+
+        button2.addEventListener("mouseenter", function() {
+            imageBox2.style.opacity = 1;
+        });
+
+        button2.addEventListener("mouseleave", function() {
+            imageBox2.style.opacity = 0;
+        });
+        });
+        </script>
+        </head>
+        <body>
+        <div class="container">
+        <div class="header">
+        <img src="https://i.imgur.com/Bd5b4IR.png" alt="LTB Logo" style="max-width: 100%;">
+        </div>
+        <div class="box">
+        <h1>„LTB“ namų puslapis</h1>
+        <div class="button-container">
+        <button id="button1" class="button" onclick="redirectToUsersPage()">„LTB“ tvarkyklė</button>
+        <button id="button2" class="button" onclick="redirectToCheckPage()">„LTB“ peržiūros</button>
+        </div>
+        <div class="image-container">
+        <div id="image-box1" class="image-box">
+        <img src="https://i.imgur.com/EBDHyEE.png" alt="Image 1">
+        </div>
+        <div id="image-box2" class="image-box">
+        <img src="https://i.imgur.com/OdBtM0W.png" alt="Image 2">
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="footer">
+        <img src="https://i.imgur.com/XXwTG2Z.png" alt="FooterImage">
+        </div>
+        </body>
+        </html>
